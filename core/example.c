@@ -30,4 +30,3 @@ int main() {
 
     return c;  // giá trị này nằm ở x10 (a0)
 }
-

@@ -169,7 +169,7 @@ module testbench;
         reset = 0;
         
         $display("\n╔════════════════════════════════════════╗");
-        $display("║   RISC-V Pipeline Processor Test       ║");
+        $display("║   RISC-V Pipeline Processor Test     ║");
         $display("╚════════════════════════════════════════╝\n");
         
         // Wait for program to finish (max 2000 cycles - reduced timeout)
@@ -194,16 +194,16 @@ module testbench;
             return_value = dut.register_file.registers[10];  // a0 register
             
             $display("\n╔════════════════════════════════════════╗");
-            $display("║      Execution Results                 ║");
+            $display("║      Execution Results                ║");
             $display("╚════════════════════════════════════════╝\n");
             
             // Main result
-            $display("┌─── PROGRAM OUTPUT ──────────────────────────────────────┐");
-            $display("│ Return Value (x10/a0):                                  │");
-            $display("│   Decimal: %-26d ", return_value);
-            $display("│   Hex:     0x%-24h ", return_value);
-            $display("│   Binary:  %032b ", return_value);
-            $display("└─────────────────────────────────────────────────────────┘\n");
+            $display("┌─── PROGRAM OUTPUT ───────────────────┐");
+            $display("│ Return Value (x10/a0):               │");
+            $display("│   Decimal: %-26d │", return_value);
+            $display("│   Hex:     0x%-24h │", return_value);
+            $display("│   Binary:  %032b │", return_value);
+            $display("└──────────────────────────────────────┘\n");
             
             // Performance metrics
             if (instr_count > 0) begin
@@ -262,7 +262,7 @@ module testbench;
             
             // Ideal CPI for 5-stage pipeline is 1.0
             if (instr_count > 0) begin
-                $display("│ Target CPI:          1.00            │");
+                $display("│ Target CPI:          1.00           │");
                 $display("│ Overhead:            %-15.2f │", (cycle_count * 1.0 / instr_count) - 1.0);
             end
             
