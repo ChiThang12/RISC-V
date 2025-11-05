@@ -1,0 +1,513 @@
+$date
+	Mon Oct 27 10:47:54 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_riscv_fetch $end
+$var wire 1 ! icache_invalidate_o $end
+$var wire 1 " squash_decode_o $end
+$var wire 1 # icache_rd_o $end
+$var wire 2 $ icache_priv_o [1:0] $end
+$var wire 32 % icache_pc_o [31:0] $end
+$var wire 1 & icache_flush_o $end
+$var wire 1 ' fetch_valid_o $end
+$var wire 32 ( fetch_pc_o [31:0] $end
+$var wire 32 ) fetch_instr_o [31:0] $end
+$var wire 1 * fetch_fault_page_o $end
+$var wire 1 + fetch_fault_fetch_o $end
+$var reg 32 , branch_pc_i [31:0] $end
+$var reg 2 - branch_priv_i [1:0] $end
+$var reg 1 . branch_request_i $end
+$var reg 1 / clk_i $end
+$var reg 1 0 fetch_accept_i $end
+$var reg 1 1 fetch_invalidate_i $end
+$var reg 1 2 icache_accept_i $end
+$var reg 1 3 icache_error_i $end
+$var reg 32 4 icache_inst_i [31:0] $end
+$var reg 1 5 icache_page_fault_i $end
+$var reg 1 6 icache_valid_i $end
+$var reg 1 7 rst_i $end
+$scope module dut $end
+$var wire 32 8 branch_pc_i [31:0] $end
+$var wire 2 9 branch_priv_i [1:0] $end
+$var wire 1 . branch_request_i $end
+$var wire 1 / clk_i $end
+$var wire 1 0 fetch_accept_i $end
+$var wire 1 1 fetch_invalidate_i $end
+$var wire 1 2 icache_accept_i $end
+$var wire 1 3 icache_error_i $end
+$var wire 1 & icache_flush_o $end
+$var wire 32 : icache_inst_i [31:0] $end
+$var wire 1 ! icache_invalidate_o $end
+$var wire 1 5 icache_page_fault_i $end
+$var wire 2 ; icache_priv_o [1:0] $end
+$var wire 1 # icache_rd_o $end
+$var wire 1 6 icache_valid_i $end
+$var wire 1 7 rst_i $end
+$var wire 1 < stall_w $end
+$var wire 1 = stall_q_w $end
+$var wire 1 " squash_decode_o $end
+$var wire 2 > priv_f_q_w [1:0] $end
+$var wire 32 ? pc_f_q_w [31:0] $end
+$var wire 32 @ pc_d_q_w [31:0] $end
+$var wire 2 A icache_priv_w [1:0] $end
+$var wire 32 B icache_pc_w [31:0] $end
+$var wire 32 C icache_pc_o [31:0] $end
+$var wire 1 D icache_invalidate_q_w $end
+$var wire 1 E icache_fetch_q_w $end
+$var wire 1 F icache_busy_w $end
+$var wire 1 ' fetch_valid_o $end
+$var wire 1 G fetch_resp_drop_w $end
+$var wire 32 H fetch_pc_o [31:0] $end
+$var wire 32 I fetch_instr_o [31:0] $end
+$var wire 1 * fetch_fault_page_o $end
+$var wire 1 + fetch_fault_fetch_o $end
+$var wire 1 J branch_q_w $end
+$var wire 2 K branch_priv_q_w [1:0] $end
+$var wire 32 L branch_pc_q_w [31:0] $end
+$var wire 1 M branch_d_q_w $end
+$var wire 1 N active_q_w $end
+$var parameter 32 O SUPPORT_MMU $end
+$scope module u_branch_buffer $end
+$var wire 32 P branch_pc_i [31:0] $end
+$var wire 2 Q branch_priv_i [1:0] $end
+$var wire 1 . branch_request_i $end
+$var wire 1 / clk_i $end
+$var wire 1 2 icache_accept_i $end
+$var wire 1 # icache_rd_i $end
+$var wire 1 7 rst_i $end
+$var wire 1 " squash_decode_o $end
+$var reg 32 R branch_pc_q_o [31:0] $end
+$var reg 2 S branch_priv_q_o [1:0] $end
+$var reg 1 J branch_q_o $end
+$upscope $end
+$scope module u_icache_tracker $end
+$var wire 1 / clk_i $end
+$var wire 1 2 icache_accept_i $end
+$var wire 1 F icache_busy_w_o $end
+$var wire 1 ! icache_invalidate_o_i $end
+$var wire 1 # icache_rd_i $end
+$var wire 1 6 icache_valid_i $end
+$var wire 1 7 rst_i $end
+$var reg 1 E icache_fetch_q_o $end
+$var reg 1 D icache_invalidate_q_o $end
+$upscope $end
+$scope module u_pc_manager $end
+$var wire 32 T branch_pc_w_i [31:0] $end
+$var wire 2 U branch_priv_w_i [1:0] $end
+$var wire 1 J branch_w_i $end
+$var wire 1 / clk_i $end
+$var wire 1 G fetch_resp_drop_w_o $end
+$var wire 1 2 icache_accept_i $end
+$var wire 32 V icache_pc_w_o [31:0] $end
+$var wire 2 W icache_priv_w_o [1:0] $end
+$var wire 1 # icache_rd_i $end
+$var wire 1 7 rst_i $end
+$var wire 1 < stall_w_i $end
+$var reg 1 M branch_d_q_o $end
+$var reg 32 X pc_d_q_o [31:0] $end
+$var reg 32 Y pc_f_q_o [31:0] $end
+$var reg 2 Z priv_f_q_o [1:0] $end
+$upscope $end
+$scope module u_skid_buffer $end
+$var wire 1 / clk_i $end
+$var wire 1 0 fetch_accept_i $end
+$var wire 1 G fetch_resp_drop_w_i $end
+$var wire 1 ' fetch_valid_i $end
+$var wire 1 ' fetch_valid_o $end
+$var wire 1 3 icache_error_i $end
+$var wire 32 [ icache_inst_i [31:0] $end
+$var wire 1 5 icache_page_fault_i $end
+$var wire 1 6 icache_valid_i $end
+$var wire 32 \ pc_d_q_i [31:0] $end
+$var wire 1 7 rst_i $end
+$var wire 32 ] fetch_pc_o [31:0] $end
+$var wire 32 ^ fetch_pc_i [31:0] $end
+$var wire 32 _ fetch_instr_o [31:0] $end
+$var wire 32 ` fetch_instr_i [31:0] $end
+$var wire 1 * fetch_fault_page_o $end
+$var wire 1 * fetch_fault_page_i $end
+$var wire 1 + fetch_fault_fetch_o $end
+$var wire 1 + fetch_fault_fetch_i $end
+$var reg 66 a skid_buffer_q [65:0] $end
+$var reg 1 b skid_valid_q $end
+$upscope $end
+$scope module u_state_control $end
+$var wire 1 J branch_w_i $end
+$var wire 1 / clk_i $end
+$var wire 1 7 rst_i $end
+$var wire 1 < stall_w_i $end
+$var reg 1 N active_q_o $end
+$var reg 1 = stall_q_o $end
+$upscope $end
+$upscope $end
+$scope task do_reset $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 O
+$end
+#0
+$dumpvars
+0b
+b0 a
+b0 `
+b0 _
+b0 ^
+b0 ]
+b0 \
+b0 [
+b11 Z
+b0 Y
+b0 X
+b11 W
+b0 V
+b11 U
+b0 T
+b11 S
+b0 R
+b11 Q
+b0 P
+0N
+0M
+b0 L
+b11 K
+0J
+b0 I
+b0 H
+0G
+0F
+0E
+0D
+b0 C
+b0 B
+b11 A
+b0 @
+b0 ?
+b11 >
+0=
+1<
+b11 ;
+b0 :
+b11 9
+b0 8
+17
+06
+05
+b0 4
+03
+02
+01
+00
+0/
+0.
+b11 -
+b0 ,
+0+
+0*
+b0 )
+b0 (
+0'
+0&
+b0 %
+b11 $
+0#
+0"
+0!
+$end
+#5000
+1/
+#10000
+0/
+#15000
+1/
+#20000
+0/
+#25000
+1/
+#30000
+0/
+#35000
+1/
+#40000
+0/
+#45000
+1/
+#50000
+0/
+07
+#55000
+1=
+1/
+#60000
+0/
+b1000000000000 ,
+b1000000000000 8
+b1000000000000 P
+1"
+1.
+#65000
+1G
+b1000000000000 L
+b1000000000000 R
+b1000000000000 T
+1J
+1/
+#70000
+0<
+0/
+10
+12
+0"
+0.
+#75000
+1#
+b1000000000000 %
+b1000000000000 C
+1N
+0=
+b1000000000000 B
+b1000000000000 V
+b1000000000000 ?
+b1000000000000 Y
+1M
+1/
+#80000
+1<
+0/
+02
+#85000
+1=
+1/
+#90000
+0/
+#95000
+1/
+#100000
+b10011 )
+b10011 I
+b10011 _
+b10011 `
+0/
+b10011 4
+b10011 :
+b10011 [
+16
+#105000
+1/
+#110000
+0/
+06
+#115000
+1/
+#120000
+0/
+#125000
+1/
+#130000
+0/
+#135000
+1/
+#140000
+0/
+#145000
+1/
+#150000
+0/
+#155000
+1/
+#160000
+0/
+#165000
+1/
+#170000
+0/
+b10000000000000 ,
+b10000000000000 8
+b10000000000000 P
+1"
+1.
+#175000
+b10000000000000 L
+b10000000000000 R
+b10000000000000 T
+1/
+#180000
+0<
+0/
+12
+0"
+0.
+#185000
+1<
+b1000000000000 (
+b1000000000000 H
+b1000000000000 ]
+b1000000000000 ^
+0#
+b10000000000000 %
+b10000000000000 C
+1F
+b1000000000000 @
+b1000000000000 X
+b1000000000000 \
+b10000000000000 B
+b10000000000000 V
+b10000000000000 ?
+b10000000000000 Y
+1E
+0=
+b0 L
+b0 R
+b0 T
+0J
+1/
+#190000
+0/
+02
+#195000
+1=
+1/
+#200000
+0/
+#205000
+1/
+#210000
+1#
+b11011110101011011011111011101111 )
+b11011110101011011011111011101111 I
+b11011110101011011011111011101111 _
+b11011110101011011011111011101111 `
+1*
+0F
+0/
+b11011110101011011011111011101111 4
+b11011110101011011011111011101111 :
+b11011110101011011011111011101111 [
+15
+16
+#215000
+0E
+1/
+#220000
+0*
+0/
+05
+06
+#225000
+1/
+#230000
+0/
+#235000
+1/
+#240000
+0/
+#245000
+1/
+#250000
+0/
+#255000
+1/
+#260000
+0/
+#265000
+1/
+#270000
+1&
+0/
+11
+#275000
+1/
+#280000
+0&
+0/
+01
+#285000
+1/
+#290000
+0/
+#295000
+1/
+#300000
+0/
+#305000
+1/
+#310000
+0/
+#315000
+1/
+#320000
+0/
+#325000
+1/
+#330000
+0/
+#335000
+1/
+#340000
+0/
+b11000000000000 ,
+b11000000000000 8
+b11000000000000 P
+1"
+1.
+#345000
+b11000000000000 L
+b11000000000000 R
+b11000000000000 T
+1J
+1/
+#350000
+0/
+0"
+0.
+#355000
+1/
+#360000
+0/
+#365000
+1/
+#370000
+0/
+#375000
+1/
+#380000
+0/
+#385000
+1/
+#390000
+0/
+#395000
+1/
+#400000
+0/
+#405000
+1/
+#410000
+0/
+#415000
+1/
+#420000
+0/
+#425000
+1/
+#430000
+0/
+#435000
+1/
+#440000
+0/
+#445000
+1/
+#450000
+0/
+#455000
+1/
+#460000
+0/
