@@ -1,15 +1,3 @@
-// ============================================================================
-// IMM_GEN.v - RISC-V Immediate Generator (FIXED)
-// ============================================================================
-// Fixed: B-type immediate extraction (branch offset)
-// B-type format:
-//   imm[12]   = instr[31]
-//   imm[10:5] = instr[30:25]
-//   imm[4:1]  = instr[11:8]
-//   imm[11]   = instr[7]
-//   imm[0]    = 0 (always even)
-// ============================================================================
-
 module imm_gen (
     input wire [31:0] instr,        // Instruction 32-bit
     output reg [31:0] imm           // Immediate value (sign-extended)
@@ -100,22 +88,3 @@ module imm_gen (
     end
 
 endmodule
-
-// ============================================================================
-// VERIFICATION EXAMPLE:
-// ============================================================================
-// Instruction: fe314ae3  (BLT x2, x3, -12)
-//
-// Binary: 1111111_00011_00010_100_01010_1100011
-//         [31:25] [24:20][19:15][14:12][11:7][6:0]
-//         funct7  rs2   rs1    funct3  imm  opcode
-//
-// B-type immediate extraction:
-//   imm[12]   = instr[31]      = 1
-//   imm[11]   = instr[7]       = 0
-//   imm[10:5] = instr[30:25]   = 111110
-//   imm[4:1]  = instr[11:8]    = 0101
-//   imm[0]    = 0
-//
-// Result: 1_0_111110_0101_0 = 1111_1111_0100 (binary) = 0xFF4 = -12 (decimal) ✓
-// ==========================================================================

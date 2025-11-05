@@ -1,13 +1,3 @@
-// ============================================================================
-// DATAPATH.v - RISC-V 5-Stage Pipeline Datapath (FULLY FIXED)
-// ============================================================================
-// Critical fixes:
-// 1. Branch detection in EX stage with proper flush timing
-// 2. PC update happens AFTER branch is detected (not concurrent)
-// 3. Proper pipeline bubble insertion
-// 4. Debug outputs for testbench
-// ============================================================================
-
 `include "IFU.v"
 `include "reg_file.v"
 `include "imm_gen.v"

@@ -7,7 +7,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 INPUT_FILE=""
-OUTPUT_HEX="src/program.hex"
+OUTPUT_HEX="program.hex"
 VERBOSE=0
 NO_PADDING=0  # NEW: Option to disable padding
 

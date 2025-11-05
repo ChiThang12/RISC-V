@@ -30,13 +30,13 @@ Disassembly of section .text:
   30:	fe010113          	addi	sp,sp,-32
   34:	00812e23          	sw	s0,28(sp)
   38:	02010413          	addi	s0,sp,32
-  3c:	00a00793          	li	a5,10
+  3c:	ff600793          	li	a5,-10
   40:	fef42623          	sw	a5,-20(s0)
-  44:	02000793          	li	a5,32
+  44:	ffd00793          	li	a5,-3
   48:	fef42423          	sw	a5,-24(s0)
   4c:	fec42703          	lw	a4,-20(s0)
   50:	fe842783          	lw	a5,-24(s0)
-  54:	00f707b3          	add	a5,a4,a5
+  54:	02f707b3          	mul	a5,a4,a5
   58:	00078513          	mv	a0,a5
   5c:	01c12403          	lw	s0,28(sp)
   60:	02010113          	addi	sp,sp,32
